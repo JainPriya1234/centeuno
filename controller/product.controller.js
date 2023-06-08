@@ -1,8 +1,9 @@
 const fs = require('fs');
 
-//getp product list by pagination
+//get product list by pagination
 
 exports.Getproductlist = (req, res) => {
+  console.log("hi");
     const size = parseInt(req.query.size) || 10; // Default size is 10
   const page = parseInt(req.query.page) || 1; // Default page is 1
     fs.readFile('item_list.json', 'utf8', (err, data) => {
@@ -30,7 +31,7 @@ exports.Getproductlist = (req, res) => {
 
 //get product by id
 
-  exports.Getproduct = (req, res) => {
+exports.Getproduct = (req, res) => {
     const id = req.params.id;
     fs.readFile('item_list.json', 'utf8', (err, data) => {
       if (err) {
